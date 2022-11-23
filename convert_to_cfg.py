@@ -8,6 +8,7 @@ def file_to_cfg(filename):
     row = file.readline()
     while (row != ''):
         head, body = row.replace('\n', '').split(' -> ')
+        head, body = row.replace(';', '').split(' -> ')
 
         if (head not in cfg.keys()):
             cfg[head] = [body.split(' ')]
