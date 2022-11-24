@@ -1,0 +1,35 @@
+Terminals :
++ - / * % ** && || ?? var variable const number ! = > < ( ) true false null
+string ' " switch case default if else { } try catch finally . log input let
+while for of in await function return class import as from throw length 
+; continue break with delete indexOf , [ ]                
+
+Variables :
+S VAR VAL STRING ARITHOP RELATOP BOOLEAN LOGICOP BREAK CONTINUE NUMBER INDEX
+ARRAY VARRAY
+
+Productions :
+S -> S S | VAR = VAL | VAR + = STRING | VAR ARITHOP = NUMBER | INDEX | 
+SLOOP -> SLOOP SLOOP | VAR = VAL | VAR + = STRING | VAR ARITHOP = NUMBER
+VAR -> var variable | let variable | const variable;
+VAL -> NUMBER | SLOOP ARITHOP SLOOP | SLOOP **  | VAR | STRING | NUMBER | 
+
+STRING -> STRING + STRING | ' string ' | " string" | ' string ' + ' string ' | " string " + " string " | ' string ' + " string " | " string " + ' string ' | ( STRING );
+ARITHOP -> + | - | / | * | % | **;
+RELATOP -> > | < | !;
+INCDEC -> + + variable | - - variable | variable + + | variable - -; 
+BOOLEAN -> true | false;
+LOGICOP -> && | || | ??;
+BREAK -> break;
+CONTINUE -> continue;
+NUMBER -> number | NUMBER ARITHOP NUMBER | number ARITHOP number | number >> number | number << number | number . number | - number;
+VARRAY -> VAL | VARRAY , VARRAY | ARRAY;
+ARRAY -> [ ] | [ VARRAY ];
+INDEX -> VAR . indexOf ( VAR ) | VAR . indexOf ( VAR , NUMBER);
+OPERATION -> ARITHOP | LOGICOP | RELATOP;
+// PRINT (belum)
+VLET -> let VAR = NUMBER;
+VFORSTOP -> VAR RELATOP NUMBER , len = LENGTH;
+LENGTH -> NUMBER | len = VAR . length;
+FORLOOP -> for ( VLET , VFORSTOP , INCDEC );
+WHILE -> while ( VAR RELATOP NUMBER ) | while ( BOOLEAN );
