@@ -20,10 +20,10 @@ Pada tugas besar ini, implementasikan parser untuk JavaScript (Node.js) untuk be
 1. Clone repository ini.
 2. Pastikan file JavaScript yang ingin dicek berada pada folder yang sama dengan program repository ini.
 3. Jalankan program dengan perintah
-'''
+```
 python parserprogram.py <nama-file-javascript>
-'''
+```
 Contoh:
-'''
+```
 python parserprogram.py “inputAcc.js”
-'''
+```
