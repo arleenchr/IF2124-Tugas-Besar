@@ -1,3 +1,4 @@
+global list_token
 list_token = [
     (r'[ \t]+',      None),           # tab
     (r'\/\/[^\n]*',  None),           # comment single line
