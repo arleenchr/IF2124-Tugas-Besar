@@ -61,7 +61,7 @@ def cfg_to_cnf(cfg):
                         if (kiriUnitProd in cfg.keys()):
                             for var in kanan:
                                 if (var not in cfg[kiriUnitProd]):
-                                    cfg[kiriUnitProd].append()(var)
+                                    cfg[kiriUnitProd].append(var)
                         else:
                             cfg[kiriUnitProd] = kanan
         
@@ -87,7 +87,7 @@ def cfg_to_cnf(cfg):
                     if (symbol not in newProd.keys()):
                         newProd[symbol] = [[tempVar[0],newSymbol]]
                     else:
-                        newProd[symbol].append()([tempVar[0],newSymbol])
+                        newProd[symbol].append([tempVar[0],newSymbol])
                     symbol = newSymbol
                     tempVar.remove(tempVar[0])
                     counter += 1
@@ -177,5 +177,10 @@ def cfg_to_cnf(cfg):
     for delKiri, delKanan in delProd.items():
         for delVar in delKanan:
             cfg[delKiri].remove(delVar)
-    
+            
+    print(cfg)
+    # for a in cfg.keys():
+    #     print(a)
     return cfg
+
+cfg_to_cnf(file_to_cfg('ref.txt'))
