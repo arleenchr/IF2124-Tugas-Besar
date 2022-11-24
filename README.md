@@ -12,9 +12,23 @@ Pada tugas besar ini, implementasikan parser untuk JavaScript (Node.js) untuk be
 (Dikutip dari [Spesifikasi Tugas Pemrograman IF2124 Teori Bahasa Formal dan Otomata](https://docs.google.com/document/d/1JodthYhXxtxvxZXdkrC29XP6AzYEQSi7ll9z_fTseA0/edit#))
 
 ## Anggota Kelompok
-1. Arleen Chrysantha Gunardi (13521059)
-2. Margaretha Olivia Haryono (13521071)
-3. Austin Gabriel Pardosi (13521089)
+| NIM       | Nama                      |
+| --------- | --------------------------|
+| 13520059  | Arleen Chrysantha Gunardi |
+| 13520071  | Margaretha Olivia Haryono |
+| 13520084  | Austin Gabriel Pardosi    |
+
+## File Penting 
+| File                 |  Content                                   |
+|----------------------|--------------------------------------------|
+| `/doc`               | Laporan                                    |
+| `grammar.txt`        | Context-Free Grammar                       |
+| `convert_to_cfg.py`  |                                            |
+| `convert_to_cnf.py`  |                                            |
+| `parserprogram.py`   |                                            |
+| `cyk.py`             |                                            |
+| `fa.py`              | Implementasi Finite Automata               |
+| `token.py`           |                                            |
 
 ## Cara Menjalankan Program
 1. Clone repository ini.
