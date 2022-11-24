@@ -8,7 +8,6 @@
 #   lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 #   digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 #   specialsign = ['_', '$']
-#   else = []
 # }
 
 transition = [["start", "uppercase", "final"], 
@@ -25,29 +24,25 @@ transition = [["start", "uppercase", "final"],
             ["final", "digits", "final"],
             ["final", "specialsign", "final"]]
 
-uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-lowercase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-specialsign = ['_', '$']
-reservedwords = ["break", "null", "public", "in", "eval", "continue", "true", "false", "boolean", "case", "catch", "debugger", "default", "delete", "do", "finally", "for", 
-                "function", "if", "in", "instanceof", "new", "return", "switch", "this", "throw", "try", "typeof", "var", "void", "while", "with"]
-others = [' ']
-
-global state
-state = ''
+uppercase       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+lowercase       = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+digits          = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+specialsign     = ['_', '$']
+reservedwords   = ["break", "null", "public", "in", "eval", "continue", "true", "false", "boolean", "case", "catch", "debugger", "default", "delete", "do", "finally", "for", 
+                "function", "if", "in", "instanceof", "new", "return", "switch", "this", "throw", "try", "typeof", "var", "void", "while", "with", 'abstract', 'arguments', 'byte', 'char', 'double', 'const', 'double', 'else']
+operation       = ['-', '+', '*', '/', '%']
 
 def startState(char):
     global state
     if (char in uppercase) or (char in lowercase) or (char in specialsign):
         state = "final"
-        # print("YES")
     else :
         state = "dead"
     return state
 
 def finalState(char):
     global state
-    if (char in others):
+    if (char not in uppercase) and (char not in lowercase) and (char not in specialsign):
         state = "dead"
     else :
         state = "final"
@@ -68,9 +63,9 @@ def check_variabel_name(str):
     for i in range (len(str)):
         if (state == "start") :
             state = startState(str[i])
-        if (state == "final") :
+        elif (state == "final") :
             state = finalState(str[i])
-        if (state == "dead") :
+        elif (state == "dead") :
             state = "dead"
             break
 
@@ -79,14 +74,58 @@ def check_variabel_name(str):
     elif (state == "dead") :
         return False
 
-# def check_operation():
+def startEquation(char, charnext):
+    global stateEq
+
+    if (char == '-') and ((charnext == '-') or (charnext == '+')):
+        stateEq = "dead"
+    elif (char == '-') or (char in digits):
+        stateEq = "final"
+    else :
+        stateEq = "dead"
+    return stateEq
+
+def deadEquation(char):
+    global stateEq
+    stateEq = "dead"
+    return stateEq
+
+def finalEquation(char):
+    global stateEq
+    if (char not in digits) and (char not in operation):
+        stateEq = "dead"
+    else :
+        stateEq = "final"
+    return stateEq
+
+def check_equation(str):
+    global stateEq
+    stateEq = "start"
+
+    for i in range (len(str)):
+        if (stateEq == "start") :
+            stateEq = startEquation(str[i], str[i+1])
+        elif (stateEq == "final") :
+            stateEq = finalEquation(str[i])
+        elif (stateEq == "dead") :
+            stateEq = "dead"
+            break
+
+    if (stateEq == "final") :
+        return True
+    elif (stateEq == "dead") :
+        return False
     
-
-# startState("A")
 # testing
-var = "austin"
-if(check_variabel_name(var)) :
-    print ("Accepted")
-else :
-    print("Syntax Error")
 
+# var = "Austin"
+# if(check_variabel_name(var)) :
+#     print ("Accepted")
+# else :
+#     print("Syntax Error")
+
+# eq = "-5+-2"
+# if(check_equation(eq)) :
+#     print ("Accepted")
+# else :
+#     print("Syntax Error")
