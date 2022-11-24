@@ -106,7 +106,10 @@ def check_equation(str):
         if (stateEq == "start") :
             stateEq = startEquation(str[i], str[i+1])
         elif (stateEq == "final") :
-            stateEq = finalEquation(str[i])
+            if (str[len(str)-1] in operation):
+                stateEq = "dead"
+            else :
+                stateEq = finalEquation(str[i])
         elif (stateEq == "dead") :
             stateEq = "dead"
             break
@@ -118,14 +121,14 @@ def check_equation(str):
     
 # testing
 
-# var = "Austin"
+# var = "123dasda"
 # if(check_variabel_name(var)) :
 #     print ("Accepted")
 # else :
 #     print("Syntax Error")
 
-# eq = "-5+-2"
-# if(check_equation(eq)) :
-#     print ("Accepted")
-# else :
-#     print("Syntax Error")
+eq = "55+"
+if(check_equation(eq)) :
+    print ("Accepted")
+else :
+    print("Syntax Error")
