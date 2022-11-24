@@ -11,12 +11,12 @@ list_token = [
 
     # Delimiter
     (r'\n', "NEWLINE"),
-    (r'\(', "KBKI"),
-    (r'\)', "KBKA"),
-    (r'\[', "KSKI"),
-    (r'\]', "KSKA"),
-    (r'\{', "KKKI"),
-    (r'\}', "KKKA"),
+    (r'\(', "OP_ROUND_BRACKET"),
+    (r'\)', "CL_ROUND_BRACKET"),
+    (r'\[', "OP_SQUARE_BRACKET"),
+    (r'\]', "CL_SQUARE_BRACKET"),
+    (r'\{', "OP_CURLY_BRACKET"),
+    (r'\}', "CL_CURLY_BRACKET"),
     (r'\;', "TITIKKOMA"),
     (r'\:', "TITIKDUA"),
 
@@ -39,16 +39,16 @@ list_token = [
     (r'\-\-',  "DECREMENT"),
     
     # Comparison Operators
-    (r'<',      "L"),        # less
-    (r'<=',     "LEQ"),      # less equal
-    (r'>',      "G"),        # greater
-    (r'>=',     "GEQ"),      # greater equal
-    (r'!=',     "ISNEQ"),    # !=
-    (r'!==',    "ISNEQ"),    # !==
-    (r'=',      "EQ"),       # ==
-    (r'==',     "ISEQ"),     # ==
-    (r'===',    "ISEQTYPE"), # ===
-    (r'?',      "TERNARY"),  # ? ternary operator
+    (r'<',      "LESS"),      # less
+    (r'<=',     "LEQ"),       # less equal
+    (r'>',      "GREATER"),   # greater
+    (r'>=',     "GEQ"),       # greater equal
+    (r'!=',     "ISNEQ"),     # !=
+    (r'!==',    "ISNEQTYPE"), # !==
+    (r'=',      "EQ"),        # ==
+    (r'==',     "ISEQ"),      # ==
+    (r'===',    "ISEQTYPE"),  # ===
+    (r'?',      "TERNARY"),   # ? ternary operator
 
     # Logical Operators
     (r'&&',     "AND"),
@@ -71,6 +71,7 @@ list_token = [
     (r'\bcase\b',       "CASE"),
     (r'\bdefault\b',    "DEFAULT"),
 
+    (r'\bdo\b',         "DO"),
     (r'\bwhile\b',      "WHILE"),
     (r'\bfor\b',        "FOR"),
     
