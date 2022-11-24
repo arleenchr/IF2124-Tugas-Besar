@@ -43,6 +43,7 @@ def startState(char):
         # print("YES")
     else :
         state = "dead"
+    return state
 
 def finalState(char):
     global state
@@ -50,15 +51,16 @@ def finalState(char):
         state = "dead"
     else :
         state = "final"
+    return state
 
 def deadState(char):
     global state
     state = "dead"
-
+    return state
 
 def check_variabel_name(str):
     global state
-    state = "start";
+    state = "start"
 
     if (str in reservedwords):
         state = "dead"
@@ -73,9 +75,9 @@ def check_variabel_name(str):
             break
 
     if (state == "final") :
-        return True;
+        return True
     elif (state == "dead") :
-        return False;
+        return False
 
 # def check_operation():
     
