@@ -23,8 +23,9 @@ if __name__ == "__main__":
     #print(args.filename)
     #print(tokenToStr(args.filename))
     # cek
-    print(Back.CYAN + "Processing...")
+    print(Back.CYAN + "Processing...", end='')
     print(Style.RESET_ALL)
+    print()
     if (cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),tokenToStr(args.filename))):
         green()
         print("Accepted")
