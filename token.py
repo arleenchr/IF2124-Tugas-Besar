@@ -98,8 +98,8 @@ list_token = [
 
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
 
-    (r'\/\/[^\n]*',                   "SINGLELINE"),
-    (r'\/\*[(?!(\"\"\"))\w\W]*\*\/',  "MULTILINE")
+    (r'\/\/[^\n]*',                 "SINGLELINE"),
+    (r'\/\*[(?!(\/\*))\w\W]*\*\/',  "MULTILINE"),
     
     # Variabel
     (r'[A-Za-z_][A-Za-z0-9_]*', "VAR")
