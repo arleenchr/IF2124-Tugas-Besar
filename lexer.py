@@ -3,6 +3,15 @@ import sys
 from token import list_token
 from fa import check_variabel_name
 from fa import *
+from colorama import Fore
+def red() :
+    print("\033[31m", end='')
+
+def green() :
+    print("\033[32m", end='')
+
+def reset() :
+    print("\033[0m", end='')
 
 def lexer(inputText,listToken):
     # Membuat lexer untuk parsing program js
@@ -33,7 +42,9 @@ def lexer(inputText,listToken):
         #print(match)
         if (match == None):
             #print("here")
+            red()
             print("Syntax Error")
+            reset()
             sys.exit()
         else:
             currentChar = match.end(0) # update currentChar menunjuk ke setelah suatu token
