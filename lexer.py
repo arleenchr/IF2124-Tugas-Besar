@@ -16,6 +16,7 @@ def lexer(inputText,listToken):
         for tkn in listToken:
             # iterasi semua elemen di list_token
             regexPattern, token = tkn
+            #print(regexPattern)
             regex = re.compile(regexPattern) # compile regex
             match = regex.match(inputText,currentChar) # cari token yang match
             if (match != None):
@@ -27,7 +28,7 @@ def lexer(inputText,listToken):
             sys.exit()
         else:
             currentChar = match.end(0) # update currentChar menunjuk ke setelah suatu token
-            
+    #print(lexemes)
     return lexemes
 
 def tokenToStr(filename):
@@ -36,3 +37,5 @@ def tokenToStr(filename):
     file.close()
     lexemes = lexer(text,list_token)
     return " ".join(lexemes)
+
+#print(tokenToStr('testing.js'))
