@@ -121,13 +121,13 @@ def check_equation(str):
         return False
     
 # testing
-
+'''
 var = "_1 austin"
 if(check_variabel_name(var)) :
     print ("Accepted")
 else :
     print("Syntax Error")
-
+'''
 # eq = "55+"
 # if(check_equation(eq)) :
 #     print ("Accepted")

@@ -30,7 +30,7 @@ def lexer(inputText,listToken):
                         match = None
                     lexemes.append(token)
                 break
-        print(match)
+        #print(match)
         if (match == None):
             print("here")
             print("Syntax Error")
@@ -47,4 +47,4 @@ def tokenToStr(filename):
     lexemes = lexer(text,list_token)
     return " ".join(lexemes)
 
-print(tokenToStr('inputAcc.js'))
+#print(tokenToStr('inputAcc.js'))
