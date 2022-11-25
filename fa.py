@@ -14,7 +14,6 @@ transition = [["start", "uppercase", "final"],
             ["start", "lowercase", "final"], 
             ["start", "digits", "dead"],
             ["start", "specialsign", "final"],
-            ["start", "specialsign", "final"],
             ["dead", "uppercase", "dead"],
             ["dead", "lowercase", "dead"],
             ["dead", "digits", "dead"],
@@ -42,7 +41,7 @@ def startState(char):
 
 def finalState(char):
     global state
-    if (char not in uppercase) and (char not in lowercase) and (char not in specialsign):
+    if (char not in uppercase) and (char not in lowercase) and (char not in specialsign) and (char not in digits):
         state = "dead"
     else :
         state = "final"
@@ -121,14 +120,14 @@ def check_equation(str):
     
 # testing
 
-# var = "123dasda"
-# if(check_variabel_name(var)) :
-#     print ("Accepted")
-# else :
-#     print("Syntax Error")
-
-eq = "55+"
-if(check_equation(eq)) :
+var = "_1 austin"
+if(check_variabel_name(var)) :
     print ("Accepted")
 else :
     print("Syntax Error")
+
+# eq = "55+"
+# if(check_equation(eq)) :
+#     print ("Accepted")
+# else :
+#     print("Syntax Error")
