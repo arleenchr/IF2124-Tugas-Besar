@@ -35,14 +35,6 @@ list_token = [
     (r'===',    "ISEQTYPE"),  # ===
     (r'\?',      "TERNARY"),   # ? ternary operator
     
-    # Arithmetic Operators
-    (r'\+',    "TAMBAH"),
-    (r'\-',    "KURANG"),
-    (r'\*',    "KALI"),
-    (r'\/',    "BAGI"),
-    (r'\%',    "MOD"),
-    (r'\*\*',  "PANGKAT"),
-    
     (r'\+=',   "TAMBAHSD"),  # tambah sama dengan -> +=
     (r'\-=',   "KURANGSD"),  # kurang sama dengan -> -=
     (r'\*=',   "KALISD"),    # kali sama dengan -> *=
@@ -52,6 +44,14 @@ list_token = [
 
     (r'\+\+',  "INCREMENT"),
     (r'\-\-',  "DECREMENT"),
+    
+    # Arithmetic Operators
+    (r'\+',    "TAMBAH"),
+    (r'\-',    "KURANG"),
+    (r'\*',    "KALI"),
+    (r'\/',    "BAGI"),
+    (r'\%',    "MOD"),
+    (r'\*\*',  "PANGKAT"),
     
     # Logical Operators
     (r'&&',     "AND"),
