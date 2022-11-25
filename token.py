@@ -7,7 +7,7 @@ list_token = [
     # Integer and String
     (r'\"[^\"\n]*\"',           "STRING"), # pakai petik dua
     (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
-    (r'[\+\-]?[1-9]+',          "INT"),    # angka bulat
+    (r'[\+\-]?[0-9]+',          "INT"),    # angka bulat
     (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
     
     # Delimiter

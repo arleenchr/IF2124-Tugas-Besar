@@ -36,13 +36,13 @@ def cyk(cnf,inputStr):
             for var in kanan:
                 if (len(var)==1) and (var[0]==arrInputStr[i]):
                     cykTable[i][i].add(kiri) # untuk input 1 string
-    '''
+    
         for x in range (i,-1,-1):
             for y in range (x,i):
                 for kiri,kanan in cnf.items():
                     for prod in kanan:
                         if (len(prod)==2) and (prod[0] in cykTable[x][y]) and (prod[1] in cykTable[y+1][i]):
-                            cykTable[x][i].append(kiri)
+                            cykTable[x][i].add(kiri)
     
     '''
     for k in range(2, len(arrInputStr)+1):
@@ -54,6 +54,7 @@ def cyk(cnf,inputStr):
                         if (len(prod)==2):
                             if (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
                                 cykTable[i][j].add(var)
+    '''
     #print(cykTable[0][len(arrInputStr)-1])
     #print(cykTable)
     
@@ -63,4 +64,4 @@ def cyk(cnf,inputStr):
         return False # rejected
     
 
-#cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),"LET ID EQ INT NEWLINE ID TAMBAH EQ INT")
+#print(cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),"LET ID EQ INT NEWLINE ID TAMBAH EQ INT"))
