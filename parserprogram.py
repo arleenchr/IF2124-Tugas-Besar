@@ -3,7 +3,7 @@ from convert_to_cfg import file_to_cfg
 from convert_to_cnf import cfg_to_cnf
 from cyk import cyk
 from lexer import tokenToStr
-from colorama import Fore
+from colorama import Back, Style
 
 def red() :
     print("\033[31m", end='')
@@ -23,6 +23,8 @@ if __name__ == "__main__":
     #print(args.filename)
     #print(tokenToStr(args.filename))
     # cek
+    print(Back.CYAN + "Processing...")
+    print(Style.RESET_ALL)
     if (cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),tokenToStr(args.filename))):
         green()
         print("Accepted")
