@@ -24,10 +24,10 @@ list_token = [
     (r'\.', "TITIK"),
     
     # Comparison Operators
-    (r'<',      "LESS"),      # less
     (r'<=',     "LEQ"),       # less equal
-    (r'>',      "GREATER"),   # greater
+    (r'<',      "LESS"),      # less
     (r'>=',     "GEQ"),       # greater equal
+    (r'>',      "GREATER"),   # greater
     (r'!==',    "ISNEQTYPE"), # !==
     (r'!=',     "ISNEQ"),     # !=
     (r'===',    "ISEQTYPE"),  # ===

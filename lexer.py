@@ -32,7 +32,7 @@ def lexer(inputText,listToken):
                 break
         #print(match)
         if (match == None):
-            print("here")
+            #print("here")
             print("Syntax Error")
             sys.exit()
         else:

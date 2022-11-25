@@ -20,8 +20,8 @@ if __name__ == "__main__":
     argParser.add_argument("filename", type=str)
     args = argParser.parse_args()
     
-    print(args.filename)
-    print(tokenToStr(args.filename))
+    #print(args.filename)
+    #print(tokenToStr(args.filename))
     # cek
     if (cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),tokenToStr(args.filename))):
         green()
