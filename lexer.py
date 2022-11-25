@@ -23,7 +23,7 @@ def lexer(inputText,listToken):
             if (match != None):
                 if token:
                     #print(match.group())
-                    if (token=="INT") and (inputText[match.end(0)] != '\n'):
+                    if (token=="INT") and (match.end(0)<len(inputText) and inputText[match.end(0)] != '\n'):
                         if (inputText[match.end(0)] in uppercase or inputText[match.end(0)] in lowercase):
                             match = None
                     if (token == "ID") and (not check_variabel_name(match.group())):
