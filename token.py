@@ -52,7 +52,7 @@ list_token = [
     (r'=',      "EQ"),        # ==
     (r'==',     "ISEQ"),      # ==
     (r'===',    "ISEQTYPE"),  # ===
-    #(r'?',      "TERNARY"),   # ? ternary operator
+    (r'\?',      "TERNARY"),   # ? ternary operator
 
     # Logical Operators
     (r'&&',     "AND"),
