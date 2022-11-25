@@ -96,5 +96,3 @@ def is_terminal(string):
 def is_variabel(string):
     return string not in list_terminal
 
-
-file_to_cfg('ref.txt')

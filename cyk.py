@@ -6,8 +6,8 @@ from convert_to_cnf import *
 def cyk(cnf,inputStr):
     # parameter input CNF (dicitonary) dan string input
     arrInputStr = inputStr.split() # stringnya ditulis dalam array
-    cykTable = [[[] for j in range (len(arrInputStr))] for i in range (len(arrInputStr))]
-    
+    cykTable = [[set([]) for j in range (len(arrInputStr))] for i in range (len(arrInputStr))]
+        
     '''
     Misal CYK Table 5x5
       0 1 2 3 4
@@ -35,19 +35,26 @@ def cyk(cnf,inputStr):
         for kiri,kanan in cnf.items():
             for var in kanan:
                 if (len(var)==1) and (var[0]==arrInputStr[i]):
-                    cykTable[i][i].append(kiri) # untuk input 1 string
-    
+                    cykTable[i][i].add(kiri) # untuk input 1 string
+        for x in range (i,-1,-1):
+            for y in range (x,i):
+                for kiri,kanan in cnf.items():
+                    for prod in kanan:
+                        if (len(prod)==2) and (prod[0] in cykTable[x][y]) and (prod[1] in cykTable[y+1][i]):
+                            cykTable[x][i].add(kiri)
+    '''
     for k in range(2, len(arrInputStr)+1):
         for i in range (0, (len(arrInputStr)-k+1)):
             j = i + k - 1
             for k in range (i,j):   
-                for var in cnf.items():
-                    for prod in var[1]:
-                        if (len(prod)==2) and (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
-                            cykTable[i][j].append(var[0])
-       
+                for var,prods in cnf.items():
+                    for prod in prods:
+                        if (len(prod)==2):
+                            if (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
+                                cykTable[i][j].add(var)
+    '''
     
-    if ('S0' in cykTable[0][len(arrInputStr)-1]):
+    if ('0' not in cykTable[0][len(arrInputStr)-1]):
         return True # acceptable
     else:
         return False # rejected

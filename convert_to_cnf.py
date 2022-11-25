@@ -178,9 +178,7 @@ def cfg_to_cnf(cfg):
         for delVar in delKanan:
             cfg[delKiri].remove(delVar)
             
-    print(cfg)
+    #print(cfg)
     # for a in cfg.keys():
     #     print(a)
     return cfg
-
-cfg_to_cnf(file_to_cfg('ref.txt'))

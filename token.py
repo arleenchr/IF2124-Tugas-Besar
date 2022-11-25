@@ -7,7 +7,7 @@ list_token = [
     # Integer and String
     (r'\"[^\"\n]*\"',           "STRING"), # pakai petik dua
     (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
-    (r'[\+\-]?[1-9]+',          "INT"),    # angka bulat
+    (r'[\+\-]?[0-9]+',          "INT"),    # angka bulat
     (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
 
     # Delimiter
@@ -20,7 +20,19 @@ list_token = [
     (r'\}', "KKKA"),
     (r'\;', "TITIKKOMA"),
     (r'\:', "TITIKDUA"),
-
+    
+    # Comparison Operators
+    (r'<',      "LESS"),      # less
+    (r'<=',     "LEQ"),       # less equal
+    (r'>',      "GREATER"),   # greater
+    (r'>=',     "GEQ"),       # greater equal
+    (r'!=',     "ISNEQ"),     # !=
+    (r'!==',    "ISNEQTYPE"), # !==
+    (r'===',    "ISEQTYPE"),  # ===
+    (r'==',     "ISEQ"),      # ==
+    (r'=',      "EQ"),        # ==
+    (r'\?',      "TERNARY"),   # ? ternary operator
+    
     # Arithmetic Operators
     (r'\+',    "TAMBAH"),
     (r'\-',    "KURANG"),
@@ -39,18 +51,6 @@ list_token = [
     (r'\+\+',  "INCREMENT"),
     (r'\-\-',  "DECREMENT"),
     
-    # Comparison Operators
-    (r'<',      "L"),        # less
-    (r'<=',     "LEQ"),      # less equal
-    (r'>',      "G"),        # greater
-    (r'>=',     "GEQ"),      # greater equal
-    (r'!=',     "ISNEQ"),    # !=
-    (r'!==',    "ISNEQ"),    # !==
-    (r'=',      "EQ"),       # ==
-    (r'==',     "ISEQ"),     # ==
-    (r'===',    "ISEQTYPE"), # ===
-    (r'?',      "TERNARY"),  # ? ternary operator
-
     # Logical Operators
     (r'&&',     "AND"),
     (r'\|\|',   "OR"),
@@ -85,4 +85,8 @@ list_token = [
     (r'\bcatch\b',      "CATCH"),
     (r'\bfinally\b',    "FINALLY"),
     (r'\bthrow\b',      "THROW"),
+    
+    (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\$[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\_[A-Za-z_][A-Za-z0-9_]*', "ID")
 ]

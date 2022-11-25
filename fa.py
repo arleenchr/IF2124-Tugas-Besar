@@ -122,19 +122,8 @@ def check_equation(str):
     
 # testing
 
-<<<<<<< HEAD
 var = "_1 austin"
 if(check_variabel_name(var)) :
-=======
-var = "$var"
-if(check_variabel_name(var)) :
-    print ("Accepted")
-else :
-    print("Syntax Error")
-
-eq = "2+3"
-if(check_equation(eq)) :
->>>>>>> 4229a2b437326489dd637fea535371712cbac65a
     print ("Accepted")
 else :
     print("Syntax Error")
