@@ -37,15 +37,24 @@ def cyk(cnf,inputStr):
                 if (len(var)==1) and (var[0]==arrInputStr[i]):
                     cykTable[i][i].append(kiri) # untuk input 1 string
     
+        for x in range (i,-1,-1):
+            for y in range (x,i):
+                for kiri,kanan in cnf.items():
+                    for prod in kanan:
+                        if (len(prod)==2) and (prod[0] in cykTable[x][y]) and (prod[1] in cykTable[y+1][i]):
+                            cykTable[x][i].append(kiri)
+    
+    '''
     for k in range(2, len(arrInputStr)+1):
         for i in range (0, (len(arrInputStr)-k+1)):
             j = i + k - 1
             for k in range (i,j):   
-                for var in cnf.items():
-                    for prod in var[1]:
-                        if (len(prod)==2) and (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
-                            cykTable[i][j].append(var[0])
-       
+                for var,prods in cnf.items():
+                    for prod in prods:
+                        if (len(prod)==2):
+                            if (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
+                                cykTable[i][j].append(var)
+    '''   
     
     if ('S0' in cykTable[0][len(arrInputStr)-1]):
         return True # acceptable
