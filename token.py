@@ -9,7 +9,7 @@ list_token = [
     (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
     (r'[\+\-]?[1-9]+',          "INT"),    # angka bulat
     (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
-
+    
     # Delimiter
     (r'\n', "NEWLINE"),
     (r'\(', "OP_ROUND_BRACKET"),
@@ -52,7 +52,7 @@ list_token = [
     (r'=',      "EQ"),        # ==
     (r'==',     "ISEQ"),      # ==
     (r'===',    "ISEQTYPE"),  # ===
-    (r'?',      "TERNARY"),   # ? ternary operator
+    #(r'?',      "TERNARY"),   # ? ternary operator
 
     # Logical Operators
     (r'&&',     "AND"),
@@ -100,5 +100,8 @@ list_token = [
 
     (r'\/\/[^\n]*',                   "SINGLELINE"),
     (r'\/\*[(?!(\"\"\"))\w\W]*\*\/',  "MULTILINE")
+    
+    # Variabel
+    (r'[A-Za-z_][A-Za-z0-9_]*', "VAR")
 ]
 
