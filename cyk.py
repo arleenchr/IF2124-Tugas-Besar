@@ -56,8 +56,8 @@ def cyk(cnf,inputStr):
                                 cykTable[i][j].add(var)
     '''
     #print(cykTable)
-    for x in cykTable:
-        print(x)
+    #for x in cykTable:
+    #    print(x)
     
     #if ('S0' in cykTable[0][len(arrInputStr)-1]):
     #if ('0' not in cykTable[0][len(arrInputStr)-1]):
