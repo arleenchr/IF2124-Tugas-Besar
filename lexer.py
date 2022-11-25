@@ -3,7 +3,7 @@ import sys
 from token import list_token
 from fa import check_variabel_name
 from fa import *
-from colorama import Fore
+from colorama import Back, Style
 def red() :
     print("\033[31m", end='')
 
@@ -42,6 +42,9 @@ def lexer(inputText,listToken):
         #print(match)
         if (match == None):
             #print("here")
+            print(Back.CYAN + "Processing...", end='')
+            print(Style.RESET_ALL)
+            print()
             red()
             print("Syntax Error")
             reset()
