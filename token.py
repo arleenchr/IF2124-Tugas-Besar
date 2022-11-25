@@ -18,8 +18,11 @@ list_token = [
     (r'\]', "CL_SQUARE_BRACKET"),
     (r'\{', "OP_CURLY_BRACKET"),
     (r'\}', "CL_CURLY_BRACKET"),
+
     (r'\;', "TITIKKOMA"),
     (r'\:', "TITIKDUA"),
+    (r'\,', "KOMA"),
+    (r'\.', "TITIK"),
 
     # Arithmetic Operators
     (r'\+',    "TAMBAH"),
@@ -72,7 +75,6 @@ list_token = [
     (r'\bcase\b',       "CASE"),
     (r'\bdefault\b',    "DEFAULT"),
 
-    (r'\bdo\b',         "DO"),
     (r'\bwhile\b',      "WHILE"),
     (r'\bfor\b',        "FOR"),
     
@@ -86,4 +88,17 @@ list_token = [
     (r'\bcatch\b',      "CATCH"),
     (r'\bfinally\b',    "FINALLY"),
     (r'\bthrow\b',      "THROW"),
+    
+    (r'\bnull\b',       "NULL"),
+    
+    (r'\bobject\b',     "TYPE"),
+    (r'\bint\b',        "TYPE"),
+    (r'\bstr\b',        "TYPE"),
+    (r'\bfloat\b',      "TYPE"),
+
+    (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
+
+    (r'\/\/[^\n]*',                   "SINGLELINE"),
+    (r'\/\*[(?!(\"\"\"))\w\W]*\*\/',  "MULTILINE")
 ]
+
