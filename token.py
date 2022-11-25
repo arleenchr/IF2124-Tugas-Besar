@@ -23,6 +23,18 @@ list_token = [
     (r'\:', "TITIKDUA"),
     (r'\,', "KOMA"),
     (r'\.', "TITIK"),
+    
+    # Comparison Operators
+    (r'<',      "LESS"),      # less
+    (r'<=',     "LEQ"),       # less equal
+    (r'>',      "GREATER"),   # greater
+    (r'>=',     "GEQ"),       # greater equal
+    (r'!=',     "ISNEQ"),     # !=
+    (r'!==',    "ISNEQTYPE"), # !==
+    (r'===',    "ISEQTYPE"),  # ===
+    (r'==',     "ISEQ"),      # ==
+    (r'=',      "EQ"),        # ==
+    (r'\?',      "TERNARY"),   # ? ternary operator
 
     # Arithmetic Operators
     (r'\+',    "TAMBAH"),
@@ -42,18 +54,6 @@ list_token = [
     (r'\+\+',  "INCREMENT"),
     (r'\-\-',  "DECREMENT"),
     
-    # Comparison Operators
-    (r'<',      "LESS"),      # less
-    (r'<=',     "LEQ"),       # less equal
-    (r'>',      "GREATER"),   # greater
-    (r'>=',     "GEQ"),       # greater equal
-    (r'!=',     "ISNEQ"),     # !=
-    (r'!==',    "ISNEQTYPE"), # !==
-    (r'=',      "EQ"),        # ==
-    (r'==',     "ISEQ"),      # ==
-    (r'===',    "ISEQTYPE"),  # ===
-    (r'\?',      "TERNARY"),   # ? ternary operator
-
     # Logical Operators
     (r'&&',     "AND"),
     (r'\|\|',   "OR"),
@@ -101,7 +101,5 @@ list_token = [
     (r'\/\/[^\n]*',                 "SINGLELINE"),
     (r'\/\*[(?!(\/\*))\w\W]*\*\/',  "MULTILINE"),
     
-    # Variabel
-    (r'[A-Za-z_][A-Za-z0-9_]*', "VAR")
 ]
 
