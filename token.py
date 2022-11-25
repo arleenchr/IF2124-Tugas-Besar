@@ -28,11 +28,11 @@ list_token = [
     (r'<=',     "LEQ"),       # less equal
     (r'>',      "GREATER"),   # greater
     (r'>=',     "GEQ"),       # greater equal
-    (r'!=',     "ISNEQ"),     # !=
     (r'!==',    "ISNEQTYPE"), # !==
-    (r'=',      "EQ"),        # ==
-    (r'==',     "ISEQ"),      # ==
+    (r'!=',     "ISNEQ"),     # !=
     (r'===',    "ISEQTYPE"),  # ===
+    (r'==',     "ISEQ"),      # ==
+    (r'=',      "EQ"),        # ==
     (r'\?',      "TERNARY"),   # ? ternary operator
     
     (r'\+=',   "TAMBAHSD"),  # tambah sama dengan -> +=
