@@ -9,7 +9,7 @@ list_token = [
     (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
     (r'[\+\-]?[1-9]+',          "INT"),    # angka bulat
     (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
-
+    
     # Delimiter
     (r'\n', "NEWLINE"),
     (r'\(', "OP_ROUND_BRACKET"),
@@ -86,4 +86,7 @@ list_token = [
     (r'\bcatch\b',      "CATCH"),
     (r'\bfinally\b',    "FINALLY"),
     (r'\bthrow\b',      "THROW"),
+    
+    # Variabel
+    (r'[A-Za-z_][A-Za-z0-9_]*', "VAR"),
 ]
