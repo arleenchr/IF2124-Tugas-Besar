@@ -23,12 +23,12 @@ Pada tugas besar ini, implementasikan parser untuk JavaScript (Node.js) untuk be
 |----------------------|--------------------------------------------|
 | `/doc`               | Laporan                                    |
 | `grammar.txt`        | Context-Free Grammar                       |
-| `convert_to_cfg.py`  |                                            |
-| `convert_to_cnf.py`  |                                            |
-| `parserprogram.py`   |                                            |
-| `cyk.py`             |                                            |
+| `convert_to_cfg.py`  | Mengubah txt ke dictionary                 |
+| `convert_to_cnf.py`  | Mengubah CFG ke CNF                        |
+| `parserprogram.py`   | Main program                               |
+| `cyk.py`             | Implementasi Algoritma CYK                 |
 | `fa.py`              | Implementasi Finite Automata               |
-| `token.py`           |                                            |
+| `token.py`           | Mengubah kata menjadi token                |
 
 ## Cara Menjalankan Program
 1. Clone repository ini.
