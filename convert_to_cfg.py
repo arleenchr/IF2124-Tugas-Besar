@@ -89,7 +89,7 @@ def file_to_cfg(filename):
     cfg = {}
 
     row = file.readline()
-    while (row != ''):
+    while (row != '' and row != '\n'):
         head, body = row.replace('\n', '').split(' -> ')
 
         if (head not in cfg.keys()):
