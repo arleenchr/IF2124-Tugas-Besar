@@ -10,6 +10,8 @@
 #   specialsign = ['_', '$']
 # }
 
+global transition, uppercase, lowercase, digits, specialsign, reservedwords, operation
+
 transition = [["start", "uppercase", "final"], 
             ["start", "lowercase", "final"], 
             ["start", "digits", "dead"],
@@ -121,13 +123,13 @@ def check_equation(str):
     
 # testing
 
-# var = "123dasda"
-# if(check_variabel_name(var)) :
-#     print ("Accepted")
-# else :
-#     print("Syntax Error")
+var = "$var"
+if(check_variabel_name(var)) :
+    print ("Accepted")
+else :
+    print("Syntax Error")
 
-eq = "55+"
+eq = "2+3"
 if(check_equation(eq)) :
     print ("Accepted")
 else :

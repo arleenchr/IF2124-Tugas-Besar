@@ -3,13 +3,7 @@ list_token = [
     (r'[ \t]+',      None),           # tab
     (r'\/\/[^\n]*',  None),           # comment single line
     (r'[\t]*\/\*[\w\W]*\*\/',  None), # comment multi lines
-
-    # Integer and String
-    (r'\"[^\"\n]*\"',           "STRING"), # pakai petik dua
-    (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
-    (r'[\+\-]?[0-9]+',          "INT"),    # angka bulat
-    (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
-    
+   
     # Delimiter
     (r'\n', "NEWLINE"),
     (r'\(', "OP_ROUND_BRACKET"),
@@ -97,6 +91,14 @@ list_token = [
     (r'\bfloat\b',      "TYPE"),
 
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\$[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\_[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    
+    # Integer and String
+    (r'\"[^\"\n]*\"',           "STRING"), # pakai petik dua
+    (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
+    (r'[\+\-]?[0-9]+',          "INT"),    # angka bulat
+    (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
 
     (r'\/\/[^\n]*',                 "SINGLELINE"),
     (r'\/\*[(?!(\/\*))\w\W]*\*\/',  "MULTILINE"),

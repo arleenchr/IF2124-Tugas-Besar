@@ -1,6 +1,8 @@
 import re #regex
 import sys
 from token import list_token
+from fa import check_variabel_name
+from fa import *
 
 def lexer(inputText,listToken):
     # Membuat lexer untuk parsing program js
@@ -21,9 +23,17 @@ def lexer(inputText,listToken):
             match = regex.match(inputText,currentChar) # cari token yang match
             if (match != None):
                 if token:
+                    #print(match.group())
+                    if (token=="INT") and (inputText[match.end(0)] != '\n'):
+                        if (inputText[match.end(0)] in uppercase or inputText[match.end(0)] in lowercase):
+                            match = None
+                    if (token == "ID") and (not check_variabel_name(match.group())):
+                        match = None
                     lexemes.append(token)
                 break
+        print(match)
         if (match == None):
+            print("here")
             print("Syntax Error")
             sys.exit()
         else:
@@ -38,4 +48,4 @@ def tokenToStr(filename):
     lexemes = lexer(text,list_token)
     return " ".join(lexemes)
 
-#print(tokenToStr('testing.js'))
+print(tokenToStr('inputAcc.js'))
