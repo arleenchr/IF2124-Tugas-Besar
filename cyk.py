@@ -7,7 +7,7 @@ def cyk(cnf,inputStr):
     # parameter input CNF (dicitonary) dan string input
     arrInputStr = inputStr.split() # stringnya ditulis dalam array
     cykTable = [[set([]) for j in range (len(arrInputStr))] for i in range (len(arrInputStr))]
-    
+        
     '''
     Misal CYK Table 5x5
       0 1 2 3 4
@@ -31,19 +31,20 @@ def cyk(cnf,inputStr):
     cykTable[0][4] cek dari [0][0]&[1][4] dan [0][1]&[2][4] dan [0][2]&[3][4] dan [0][3]&[4][4]
     '''
     
-    for i in range (len(arrInputStr)):
+    for i in range (0,len(arrInputStr)):
         for kiri,kanan in cnf.items():
             for var in kanan:
+                #print(var)
+                #print(arrInputStr[i])
                 if (len(var)==1) and (var[0]==arrInputStr[i]):
+                    
                     cykTable[i][i].add(kiri) # untuk input 1 string
-    '''
         for x in range (i,-1,-1):
             for y in range (x,i):
                 for kiri,kanan in cnf.items():
                     for prod in kanan:
                         if (len(prod)==2) and (prod[0] in cykTable[x][y]) and (prod[1] in cykTable[y+1][i]):
-                            cykTable[x][i].append(kiri)
-    
+                            cykTable[x][i].add(kiri)
     '''
     for k in range(2, len(arrInputStr)+1):
         for i in range (0, (len(arrInputStr)-k+1)):
@@ -54,13 +55,13 @@ def cyk(cnf,inputStr):
                         if (len(prod)==2):
                             if (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
                                 cykTable[i][j].add(var)
-    #print(cykTable[0][len(arrInputStr)-1])
+    '''
     #print(cykTable)
-    
     if ('0' not in cykTable[0][len(arrInputStr)-1]):
+    #if (len(cykTable[0][len(arrInputStr)-1]) != 0):
         return True # acceptable
     else:
         return False # rejected
     
 
-#cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),"LET ID EQ INT NEWLINE ID TAMBAH EQ INT")
+#cyk(cfg_to_cnf(file_to_cfg("grammar.txt")),"let x=0")

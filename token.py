@@ -7,23 +7,32 @@ list_token = [
     # Integer and String
     (r'\"[^\"\n]*\"',           "STRING"), # pakai petik dua
     (r'\'[^\'\n]*\'',           "STRING"), # pakai petik satu
-    (r'[\+\-]?[1-9]+',          "INT"),    # angka bulat
+    (r'[\+\-]?[0-9]+',          "INT"),    # angka bulat
     (r'[\+\-]?[0-9]*\.[0-9]+',  "FLOAT"),  # angka desimal
-    
+
     # Delimiter
     (r'\n', "NEWLINE"),
-    (r'\(', "OP_ROUND_BRACKET"),
-    (r'\)', "CL_ROUND_BRACKET"),
-    (r'\[', "OP_SQUARE_BRACKET"),
-    (r'\]', "CL_SQUARE_BRACKET"),
-    (r'\{', "OP_CURLY_BRACKET"),
-    (r'\}', "CL_CURLY_BRACKET"),
-
+    (r'\(', "KBKI"),
+    (r'\)', "KBKA"),
+    (r'\[', "KSKI"),
+    (r'\]', "KSKA"),
+    (r'\{', "KKKI"),
+    (r'\}', "KKKA"),
     (r'\;', "TITIKKOMA"),
     (r'\:', "TITIKDUA"),
-    (r'\,', "KOMA"),
-    (r'\.', "TITIK"),
-
+    
+    # Comparison Operators
+    (r'<',      "LESS"),      # less
+    (r'<=',     "LEQ"),       # less equal
+    (r'>',      "GREATER"),   # greater
+    (r'>=',     "GEQ"),       # greater equal
+    (r'!==',    "ISNEQTYPE"), # !==
+    (r'!=',     "ISNEQ"),     # !=
+    (r'===',    "ISEQTYPE"),  # ===
+    (r'==',     "ISEQ"),      # ==
+    (r'=',      "EQ"),        # ==
+    (r'\?',      "TERNARY"),   # ? ternary operator
+    
     # Arithmetic Operators
     (r'\+',    "TAMBAH"),
     (r'\-',    "KURANG"),
@@ -42,18 +51,6 @@ list_token = [
     (r'\+\+',  "INCREMENT"),
     (r'\-\-',  "DECREMENT"),
     
-    # Comparison Operators
-    (r'<',      "LESS"),      # less
-    (r'<=',     "LEQ"),       # less equal
-    (r'>',      "GREATER"),   # greater
-    (r'>=',     "GEQ"),       # greater equal
-    (r'!=',     "ISNEQ"),     # !=
-    (r'!==',    "ISNEQTYPE"), # !==
-    (r'=',      "EQ"),        # ==
-    (r'==',     "ISEQ"),      # ==
-    (r'===',    "ISEQTYPE"),  # ===
-    (r'\?',      "TERNARY"),   # ? ternary operator
-
     # Logical Operators
     (r'&&',     "AND"),
     (r'\|\|',   "OR"),
@@ -89,19 +86,7 @@ list_token = [
     (r'\bfinally\b',    "FINALLY"),
     (r'\bthrow\b',      "THROW"),
     
-    (r'\bnull\b',       "NULL"),
-    
-    (r'\bobject\b',     "TYPE"),
-    (r'\bint\b',        "TYPE"),
-    (r'\bstr\b',        "TYPE"),
-    (r'\bfloat\b',      "TYPE"),
-
     (r'[A-Za-z_][A-Za-z0-9_]*', "ID"),
-
-    (r'\/\/[^\n]*',                 "SINGLELINE"),
-    (r'\/\*[(?!(\/\*))\w\W]*\*\/',  "MULTILINE"),
-    
-    # Variabel
-    (r'[A-Za-z_][A-Za-z0-9_]*', "VAR")
+    (r'\$[A-Za-z_][A-Za-z0-9_]*', "ID"),
+    (r'\_[A-Za-z_][A-Za-z0-9_]*', "ID")
 ]
-

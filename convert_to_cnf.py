@@ -182,6 +182,3 @@ def cfg_to_cnf(cfg):
     # for a in cfg.keys():
     #     print(a)
     return cfg
-
-
-#cfg_to_cnf(file_to_cfg('grammar.txt'))
