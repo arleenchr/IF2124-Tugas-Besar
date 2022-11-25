@@ -55,10 +55,13 @@ def cyk(cnf,inputStr):
                             if (prod[0] in cykTable[i][k]) and (prod[1] in cykTable[k+1][j]): 
                                 cykTable[i][j].add(var)
     '''
-    print(cykTable)
+    #print(cykTable)
+    for x in cykTable:
+        print(x)
+    
     #if ('S0' in cykTable[0][len(arrInputStr)-1]):
-    if ('0' not in cykTable[0][len(arrInputStr)-1]):
-    #if (len(cykTable[0][len(arrInputStr)-1]) != 0):
+    #if ('0' not in cykTable[0][len(arrInputStr)-1]):
+    if (len(cykTable[0][len(arrInputStr)-1]) != 0):
         return True # acceptable
     else:
         return False # rejected
