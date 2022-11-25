@@ -1,5 +1,5 @@
 // inputAcc.js
-function _1do_something(x) {
+function do_something(x) {
     // This is a sample comment
     if (x == 0) {
         return 0;
